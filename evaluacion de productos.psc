@@ -2,24 +2,25 @@ Proceso SistemaBancario
 	Definir cuentaA, cuentaB, cuentaMaster, monto Como Real
 	Definir opcion, cuentaOrigen, cuentaDestino Como Entero
 	
-	// Inicializar saldos
+	// Inicializar saldos  le pedimos al usuario decidir el saldo inicial de las cuentas para no tener que cambiarlo del algoritmo
+	// la cuenta master si la iniciamos en 0
 	Escribir "Ingrese el saldo inicial de la Cuenta A:"
 	Leer cuentaA
 	Escribir "Ingrese el saldo inicial de la Cuenta B:"
 	Leer cuentaB
 	cuentaMaster = 0
-	
+	// repetimos haste que el usuario decida salir
 	Repetir
 		Escribir "=============================="
-		Escribir "       MENÚ DE OPERACIONES    "
+		Escribir "       MENÃš DE OPERACIONES    "
 		Escribir "=============================="
 		Escribir "1. Transferencia entre Cuentas A y B"
 		Escribir "2. Inyectar dinero desde Cuenta Master"
 		Escribir "3. Consultar saldos"
 		Escribir "4. Salir"
-		Escribir "Seleccione una opción:"
+		Escribir "Seleccione una opciÃ³n:"
 		Leer opcion
-		
+		// colocamos una funcion a cada opcion 
 		Si opcion = 1 Entonces
 			Escribir "Seleccione cuenta origen (1 para A, 2 para B):"
 			Leer cuentaOrigen
@@ -51,11 +52,11 @@ Proceso SistemaBancario
 								Escribir "Saldo insuficiente en Cuenta B."
 							FinSi
 						SiNo
-							Escribir "Cuentas inválidas."
+							Escribir "Cuentas invÃ¡lidas."
 						FinSi
 					FinSi
 				SiNo
-					Escribir "Monto inválido. Debe ser mayor a 0."
+					Escribir "Monto invÃ¡lido. Debe ser mayor a 0."
 				FinSi
 			FinSi
 			
@@ -65,9 +66,9 @@ Proceso SistemaBancario
 				Leer monto
 				Si monto > 0 Entonces
 					cuentaMaster = cuentaMaster + monto
-					Escribir "Fondos añadidos a Cuenta Master."
+					Escribir "Fondos aÃ±adidos a Cuenta Master."
 					
-					Escribir "¿A qué cuenta desea transferir desde la Cuenta Master? (1 para A, 2 para B):"
+					Escribir "Â¿A quÃ© cuenta desea transferir desde la Cuenta Master? (1 para A, 2 para B):"
 					Leer cuentaDestino
 					Escribir "Ingrese el monto a inyectar desde la Cuenta Master:"
 					Leer monto
@@ -76,18 +77,18 @@ Proceso SistemaBancario
 						Si cuentaDestino = 1 Entonces
 							cuentaA = cuentaA + monto
 							cuentaMaster = cuentaMaster - monto
-							Escribir "Inyección exitosa a Cuenta A."
+							Escribir "InyecciÃ³n exitosa a Cuenta A."
 						SiNo
 							Si cuentaDestino = 2 Entonces
 								cuentaB = cuentaB + monto
 								cuentaMaster = cuentaMaster - monto
-								Escribir "Inyección exitosa a Cuenta B."
+								Escribir "InyecciÃ³n exitosa a Cuenta B."
 							SiNo
-								Escribir "Cuenta destino inválida."
+								Escribir "Cuenta destino invÃ¡lida."
 							FinSi
 						FinSi
 					SiNo
-						Escribir "Monto inválido o saldo insuficiente en Cuenta Master."
+						Escribir "Monto invÃ¡lido o saldo insuficiente en Cuenta Master."
 					FinSi
 				SiNo
 					Escribir "El monto debe ser mayor a 0."
@@ -103,7 +104,7 @@ Proceso SistemaBancario
 					Si opcion = 4 Entonces
 						Escribir "Saliendo del programa..."
 					SiNo
-						Escribir "Opción no válida. Intente nuevamente."
+						Escribir "OpciÃ³n no vÃ¡lida. Intente nuevamente."
 					FinSi
 				FinSi
 			FinSi
